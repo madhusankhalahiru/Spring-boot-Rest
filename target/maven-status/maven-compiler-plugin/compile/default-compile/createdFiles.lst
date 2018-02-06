@@ -1,0 +1,5 @@
+com\demo\model\Note.class
+com\demo\CRUD\app.class
+com\demo\CRUD\CrudApplication.class
+com\demo\Controller\MyController.class
+com\demo\repository\NoteRepository.class
