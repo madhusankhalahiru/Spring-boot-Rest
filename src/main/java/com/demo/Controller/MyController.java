@@ -44,4 +44,18 @@ public class MyController {
         return ResponseEntity.ok().body(note);
     }
 
+    @PutMapping("/notes/{id}")
+    public ResponseEntity<Note> updateNote(@PathVariable(value = "id") Long noteId,
+                                           @Valid @RequestBody Note noteDetails) {
+        Note note = noteRepository.findOne(noteId);
+        if(note == null) {
+            return ResponseEntity.notFound().build();
+        }
+        note.setTitle(noteDetails.getTitle());
+        note.setContent(noteDetails.getContent());
+
+        Note updatedNote = noteRepository.save(note);
+        return ResponseEntity.ok(updatedNote);
+    }
+
 }
